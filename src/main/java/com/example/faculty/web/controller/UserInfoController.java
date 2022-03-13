@@ -35,4 +35,9 @@ public class UserInfoController {
         return userInfoService.queryList(request);
     }
 
+    @RequestMapping("/delete.json")
+    public WebResult delete(@RequestBody UserInfoRequest request){
+        return userInfoService.delete(request.getId());
+    }
+
 }

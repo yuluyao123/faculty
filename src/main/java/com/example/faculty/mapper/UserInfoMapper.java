@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface UserInfoMapper {
 
-    String alias = "id, "
+    String columns = "id, "
             + "gmt_create as gmtCreate, "
             + "gmt_modify as gmtModify, "
             + "type, "
@@ -21,7 +21,7 @@ public interface UserInfoMapper {
             + "password, "
             + "status";
 
-        @Insert({"insert into sys_role(id, gmt_create, gmt_modify, type, user_name, realName, phone_number, school, duties, password, status) " +
+    @Insert({"insert into sys_role(id, gmt_create, gmt_modify, type, user_name, realName, phone_number, school, duties, password, status) " +
             "values (now(), now(), #{type}, #{userName), #{realName), #{phoneNumber), #{school), #{duties), #{password), #{status)"})
     @Options(useGeneratedKeys = true, keyProperty = "id")
     Long insert(UserInfoDO userInfoDO);
@@ -42,7 +42,7 @@ public interface UserInfoMapper {
             "</script>")
     int update(UserInfoDO userInfoDO);
 
-    @Select("select " + alias + " from user_info where id  = #{id}")
+    @Select("select " + columns + " from user_info where id  = #{id}")
     UserInfoDO query(Long id);
 
     @Select("<script>" +
