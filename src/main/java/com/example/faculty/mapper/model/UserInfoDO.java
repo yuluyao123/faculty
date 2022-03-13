@@ -64,11 +64,4 @@ public class UserInfoDO {
      */
     private Boolean status;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }
