@@ -27,7 +27,15 @@ public interface UserInfoService {
      * @param id
      * @return
      */
-    WebResult<UserInfo> query(Long id);
+    WebResult<UserInfo> queryById(Long id);
+
+    /**
+     * 登录验证
+     * @param userName
+     * @param password
+     * @return
+     */
+    WebResult<UserInfo> queryByUserAndPwd(String userName, String password);
 
     /**
      * 查询用户列表

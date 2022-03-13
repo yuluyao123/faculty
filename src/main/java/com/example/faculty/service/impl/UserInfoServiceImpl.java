@@ -35,8 +35,13 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
 
     @Override
-    public WebResult<UserInfo> query(Long id) {
-        return WebResult.success(userInfoMapper.query(id));
+    public WebResult<UserInfo> queryById(Long id) {
+        return WebResult.success(userInfoMapper.queryById(id));
+    }
+
+    @Override
+    public WebResult<UserInfo> queryByUserAndPwd(String userName, String password) {
+        return WebResult.success(userInfoMapper.queryByUserAndPwd(userName, password));
     }
 
     @Override

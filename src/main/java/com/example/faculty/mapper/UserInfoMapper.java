@@ -43,7 +43,10 @@ public interface UserInfoMapper {
     int update(UserInfoDO userInfoDO);
 
     @Select("select " + columns + " from user_info where id  = #{id}")
-    UserInfoDO query(Long id);
+    UserInfoDO queryById(Long id);
+
+    @Select("select " + columns + " from user_info where user_name  = #{userName} and password  = #{password}")
+    UserInfoDO queryByUserAndPwd(@Param("userName")String userName, @Param("password")String password);
 
     @Select("<script>" +
             "select * from sys_user_tab " +
