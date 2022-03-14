@@ -6,14 +6,19 @@ import lombok.Data;
 public class WebResult<T> {
 
     /**
-     * 数据
-     */
-    private T data;
-
-    /**
      * 状态
      */
-    private boolean status;
+    private boolean success = false;
+
+    /**
+     * 数据
+     */
+    private T result;
+
+    /**
+     * 数量
+     */
+    private Integer total;
 
     /**
      * 返回信息
@@ -24,18 +29,39 @@ public class WebResult<T> {
     }
 
 
-    public WebResult(T data) {
-        this.data = data;
+    public WebResult(boolean success, T result, String message) {
+        this.success = success;
+        this.result = result;
+        this.message = message;
+    }
+
+    public WebResult(boolean success, T result, Integer total, String message) {
+        this.success = success;
+        this.result = result;
+        this.total = total;
+        this.message = message;
     }
 
 
-    public static WebResult success(Object data){
-        WebResult result = new WebResult(data);
-        result.status = true;
-        return result;
+    public static <T> WebResult success(T result){
+        return new WebResult(true, result, null);
 
     }
 
+    public static <T> WebResult success(T result, Integer total){
+        return new WebResult(true, result, total, null);
+
+    }
+
+    public static <T> WebResult error(T result){
+        return new WebResult(false, result, null);
+
+    }
+
+    public static <T> WebResult error(T result, String message){
+        return new WebResult(false, result, message);
+
+    }
 
 
 

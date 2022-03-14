@@ -1,10 +1,10 @@
 package com.example.faculty.web.model;
 
-import com.example.faculty.util.model.PageRequest;
+import com.example.faculty.util.model.PageDTO;
 import lombok.Data;
 
 @Data
-public class UserInfoRequest extends PageRequest {
+public class UserInfoRequest extends PageDTO {
 
     /**
      * 用户ID
