@@ -19,6 +19,11 @@ public class LoginController {
     @Autowired
     private UserInfoService userInfoService;
 
+    @RequestMapping("/register")
+    public WebResult register(@RequestBody UserInfoRequest request){
+        return userInfoService.insert(request);
+    }
+
     @RequestMapping("/login")
     public WebResult login(@RequestBody UserInfoRequest userInfo, HttpServletRequest request) {
         HttpSession session = request.getSession();

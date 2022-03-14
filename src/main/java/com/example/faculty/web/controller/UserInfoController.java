@@ -25,8 +25,8 @@ public class UserInfoController {
         return userInfoService.update(request);
     }
 
-    @RequestMapping("/query.json")
-    public WebResult query(@RequestBody UserInfoRequest request){
+    @RequestMapping("/queryById.json")
+    public WebResult queryById(@RequestBody UserInfoRequest request){
         return userInfoService.queryById(request.getId());
     }
 

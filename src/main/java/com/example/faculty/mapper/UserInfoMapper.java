@@ -21,8 +21,8 @@ public interface UserInfoMapper {
             + "password, "
             + "status";
 
-    @Insert({"insert into sys_role(id, gmt_create, gmt_modify, type, user_name, realName, phone_number, school, duties, password, status) " +
-            "values (now(), now(), #{type}, #{userName), #{realName), #{phoneNumber), #{school), #{duties), #{password), #{status)"})
+    @Insert({"insert into user_info (gmt_create, gmt_modify, type, user_name, real_name, phone_number, school, duties, password, status) " +
+            "values (now(), now(), #{type}, #{userName}, #{realName}, #{phoneNumber}, #{school}, #{duties}, #{password}, #{status})"})
     @SelectKey(statement = "SELECT LAST_INSERT_ID()", keyProperty = "id", resultType = Long.class, before = false)
     Long insert(UserInfoDO userInfoDO);
 
