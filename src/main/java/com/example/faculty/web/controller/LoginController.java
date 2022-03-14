@@ -21,6 +21,8 @@ public class LoginController {
 
     @RequestMapping("/register")
     public WebResult register(@RequestBody UserInfoRequest request){
+        //校验
+
         return userInfoService.insert(request);
     }
 

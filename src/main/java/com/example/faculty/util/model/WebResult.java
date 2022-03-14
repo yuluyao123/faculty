@@ -5,6 +5,8 @@ import lombok.Data;
 @Data
 public class WebResult<T> {
 
+    private static String success_msg = "成功";
+
     /**
      * 状态
      */
@@ -44,12 +46,12 @@ public class WebResult<T> {
 
 
     public static <T> WebResult success(T result){
-        return new WebResult(true, result, null);
+        return new WebResult(true, result, success_msg);
 
     }
 
     public static <T> WebResult success(T result, Integer total){
-        return new WebResult(true, result, total, null);
+        return new WebResult(true, result, total, success_msg);
 
     }
 
