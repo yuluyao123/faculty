@@ -15,27 +15,22 @@ public class UserInfoController {
     @Autowired
     private UserInfoService userInfoService;
 
-    @RequestMapping("/add.json")
-    public WebResult add(@RequestBody UserInfoRequest request){
-        return userInfoService.insert(request);
-    }
-
-    @RequestMapping("/update.json")
+    @RequestMapping("/update")
     public WebResult update(@RequestBody UserInfoRequest request){
         return userInfoService.update(request);
     }
 
-    @RequestMapping("/queryById.json")
+    @RequestMapping("/queryById")
     public WebResult queryById(@RequestBody UserInfoRequest request){
         return userInfoService.queryById(request.getId());
     }
 
-    @RequestMapping("/queryList.json")
+    @RequestMapping("/queryList")
     public WebResult queryList(@RequestBody UserInfoRequest request){
         return userInfoService.queryList(request);
     }
 
-    @RequestMapping("/delete.json")
+    @RequestMapping("/delete")
     public WebResult delete(@RequestBody UserInfoRequest request){
         return userInfoService.delete(request.getId());
     }
