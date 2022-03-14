@@ -30,7 +30,7 @@ public class LoginController {
             return WebResult.success("登录失败");
         }
 
-        UserInfo user = result.getData();
+        UserInfo user = result.getResult();
         session.setAttribute("USER", user);
         return WebResult.success(user);
     }
